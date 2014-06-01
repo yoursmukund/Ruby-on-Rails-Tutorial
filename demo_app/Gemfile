@@ -35,6 +35,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'webrat'
   gem 'protected_attributes'
+  gem 'factory_girl_rails', '1.0'
+  gem 'gravatar_image_tag', '0.1.0'
 end
 
 group :production do

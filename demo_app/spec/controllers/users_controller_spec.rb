@@ -76,4 +76,24 @@ response.should redirect_to(user_path(assigns(:user)))
 end
 end
 end
+describe 'edit' do
+	before(:each) do
+		@user = Factory(:user)
+		test_sign_in(@user)
+	end
+	it "should be successful" do
+		get :edit, :id => @user 
+		response.should be_success
+	end
+	it "should have the right title" do
+		get :edit, :id => @user
+		response.should have_selector("title", :content => "edit user")
+	end
+	it "should have the link to change gravatar" do
+		get :edit, :id => @user
+		gravatar_url = "http://gravatar.com/emails"
+		response.should have_selector("a", :href => gravatar_url, :content => "change")
+	end
+
+
 end

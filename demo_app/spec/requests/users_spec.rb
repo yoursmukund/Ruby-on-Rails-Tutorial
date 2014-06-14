@@ -1,11 +1,20 @@
-# require 'spec_helper'
+describe "admin attribute" do
+before(:each) do
+@user = User.create!(@attr)
+end
+it "should respond to admin" do
+@user.should respond_to(:admin)
+end
+it "should not be an admin by default" do
+@user.should_not be_admin
+end
+it "should be convertible to an admin" do
+@user.toggle!(:admin)
+@user.should be_admin
+end
+end
+end
 
-# describe "Users" do
-#   describe "GET /users" do
-#     it "works! (now write some real specs)" do
-#       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-#       get users_index_path
-#       response.status.should be(200)
-#     end
-#   end
-# end
+
+
+

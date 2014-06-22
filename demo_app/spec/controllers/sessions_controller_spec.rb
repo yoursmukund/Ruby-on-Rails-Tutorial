@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 
-describe SessionsController do
+describe SessionsController, :type => :controller do
 render_views
 describe "DELETE 'destroy'" do
 it "should sign a user out" do
